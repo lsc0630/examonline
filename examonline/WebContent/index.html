@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>华信智原在线考试系统</title>
+<style>
+   *{margin: 0;padding: 0;}
+   #bd{
+   	   width: 70%;
+   	   margin-left: 15%;
+   	   margin-top: 20px;
+   }
+   #logo{
+   	 float: left;
+   }
+   #head-right{
+   	  float: right;
+   }
+   #bt{
+   	  clear: both;
+   	  font-family: "隶书";
+   	  font-size: 48px;
+   	  font-weight: bold;
+   	  color: white;
+   	  margin-top: 70px;
+   	  background-color: #123456;
+   	  width: 100%;
+   	  padding-left: 5px;
+   }
+   #content{
+   	width: 100%;
+   	margin-top: 40px;
+   	height: 400px;
+   }
+   #content-left{
+   	float:left;
+   	 width: 60%;
+   }
+   #content-right{
+   	 float:right;
+   	 width: 39%;   	 
+   }
+   #login{
+   	border: solid 1px #123456;
+   	width: 70%;
+   	margin-top: 100px;
+   	margin-left: 50px;
+   }
+   #login h4{
+   	background-color: #123456;
+   	color:white;
+   	padding: 5px;
+   	font-family: "隶书";
+   }
+   #login p{
+   	margin: 20px 0px 20px 30px;
+   	font-family: "微软雅黑";
+   	font-size: 14px;
+   }
+   #login p .dl{
+   	  margin-left: 20px;
+   	  width: 60px;
+   	  padding: 2px;
+   }
+   #footer{
+   	clear:both;
+   	width: 100%;
+   	height: 25px;
+   	background-color: #123456;
+   	margin-top: 20px;
+   	color: white;
+   	padding-top: 5px;
+   	text-align: center;
+   	font-family: "隶书";
+   	font-size: 16px;
+   }
+</style>
+<script src="js/jquery-1.9.1.min.js" type="text/javascript"></script>
+<script>
+   $(document).ready(function(){
+   	  $("#btdl").click(function(){
+   	  	 $.ajax({
+   	  	 	type:"post",
+   	  	 	url:"Login",
+   	  	 	data:$("#formdl").serialize(),
+   	  	 	success:function(data){
+   	  	 		if(data=="true"){
+   	  	 			alert("登录成功！");
+   	  	 			location.href="manage/index.jsp";
+   	  	 		}
+   	  	 		else{
+   	  	 			alert("帐号/密码错误！");
+   	  	 		}
+   	  	 	}
+   	  	 });
+   	  });
+   });
+</script>
+</head>
+<body>
+<div id="bd">
+<div id="head">
+	<div id="logo">
+		<img src="images/logo.png" width="250px"/>
+	</div>
+	<div id="head-right">	
+			
+	</div>
+	<div id="bt">在线考试系统</div>
+</div>
+<div id="content">
+	<div id="content-left">
+		<div id="image">
+			<img src="images/aa.jpg">
+		</div>
+	</div>
+	<div id="content-right">
+		<div id="login">
+			<form method="post" id="formdl">
+				<h4>用户登录</h4>
+				<p>帐号：<input type="text" name="user" style="width:120px"></p>
+				<p>密码：<input type="password" name="pass" style="width:120px"></p>
+				<p>
+					<input id='btdl' type="button" value="登录" class="dl"/>
+					<input type="reset" value="重置" class="dl">
+				</p>
+			</form>
+		</div>
+	</div>
+</div>
+<div id="footer">
+	华信智原&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+	版权所有&nbsp;&nbsp;
+	2015年8月11日
+</div>
+</div>
+</body>
+</html>
